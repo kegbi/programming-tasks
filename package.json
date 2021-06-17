@@ -1,0 +1,19 @@
+{
+  "name": "codewars_leetcode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "jest": "^27.0.4"
+  },
+  "dependencies": {
+    "typescript": "^4.3.4"
+  }
+}
