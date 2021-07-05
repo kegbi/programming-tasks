@@ -8,15 +8,6 @@ export default function validParentheses(s: string): boolean | any {
   splittedBrackets.forEach((bracket) => {
     if (openBrackets.includes(bracket)) {
       openStack.push(bracket);
-      const bracketIndex = openBrackets.indexOf(bracket);
-      if (closedStack.length > 0) {
-        if (
-          closedStack[closedStack.length - 1] === closedBrackets[bracketIndex]
-        ) {
-          openStack.pop();
-          closedStack.pop();
-        }
-      }
     } else {
       closedStack.push(bracket);
       const bracketIndex = closedBrackets.indexOf(bracket);
@@ -29,11 +20,5 @@ export default function validParentheses(s: string): boolean | any {
     }
   });
 
-  if (openStack.length === 0 && closedStack.length === 0) {
-    return true;
-  } else {
-    return [openStack, closedStack];
-  }
+  return openStack.length === 0 && closedStack.length === 0;
 }
-
-validParentheses("{[]}");

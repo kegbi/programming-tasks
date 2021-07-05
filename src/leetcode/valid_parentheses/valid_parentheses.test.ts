@@ -8,15 +8,15 @@ describe("valid parentheses cases", function () {
     expect(validParentheses("()[]{}")).toEqual(true);
   });
   test("Third example", () => {
-    expect(validParentheses("(]")).toEqual(true);
+    expect(validParentheses("(]")).toEqual(false);
   });
   test("Fourth example", () => {
-    expect(validParentheses("([)]")).toEqual(true);
+    expect(validParentheses("([)]")).toEqual(false);
   });
   test("Fifth example", () => {
     expect(validParentheses("{[]}")).toEqual(true);
   });
   test("Sixth example", () => {
-    expect(validParentheses("(){}}{")).toEqual(true);
+    expect(validParentheses("(){}}{")).toEqual(false);
   });
 });
