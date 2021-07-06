@@ -1,7 +1,6 @@
 export default function validParentheses(string: string): boolean {
   type OpeningBracket = "(" | "{" | "[";
   type ClosingBracket = ")" | "}" | "]";
-  type Bracket = OpeningBracket | ClosingBracket;
 
   const openBrackets = ["(", "{", "["];
   const closedBrackets = [")", "}", "]"];
@@ -9,7 +8,7 @@ export default function validParentheses(string: string): boolean {
   const closedStack: ClosingBracket[] = [];
 
   const splittedBrackets = string.split("");
-  splittedBrackets.forEach((bracket: Bracket) => {
+  splittedBrackets.forEach((bracket: string) => {
     if (openBrackets.includes(bracket)) {
       openStack.push(bracket as OpeningBracket);
     } else {
