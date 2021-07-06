@@ -1,15 +1,19 @@
-export default function validParentheses(s: string): boolean | any {
+export default function validParentheses(string: string): boolean {
+  type OpeningBracket = "(" | "{" | "[";
+  type ClosingBracket = ")" | "}" | "]";
+  type Bracket = OpeningBracket | ClosingBracket;
+
   const openBrackets = ["(", "{", "["];
   const closedBrackets = [")", "}", "]"];
-  const openStack: any[] = [];
-  const closedStack: any[] = [];
+  const openStack: OpeningBracket[] = [];
+  const closedStack: ClosingBracket[] = [];
 
-  const splittedBrackets = s.split("");
-  splittedBrackets.forEach((bracket) => {
+  const splittedBrackets = string.split("");
+  splittedBrackets.forEach((bracket: Bracket) => {
     if (openBrackets.includes(bracket)) {
-      openStack.push(bracket);
+      openStack.push(bracket as OpeningBracket);
     } else {
-      closedStack.push(bracket);
+      closedStack.push(bracket as ClosingBracket);
       const bracketIndex = closedBrackets.indexOf(bracket);
       if (openStack.length > 0) {
         if (openStack[openStack.length - 1] === openBrackets[bracketIndex]) {
