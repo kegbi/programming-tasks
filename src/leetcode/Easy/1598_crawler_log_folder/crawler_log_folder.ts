@@ -1,14 +1,14 @@
 export default function minOperations(logs: string[]): number {
-  let stack: string[] = [];
+  let counter: number = 0;
   logs.forEach((element) => {
     if (element === "../") {
-      if (stack.length > 0) {
-        stack.pop();
+      if (counter > 0) {
+        counter--;
       }
     } else if (element !== "./") {
-      stack.push(element);
+      counter++;
     }
   });
 
-  return stack.length;
+  return counter;
 }
