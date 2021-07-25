@@ -1,3 +1,3 @@
 ## Tasks from leetcode
 
-#### Language: TypeScript, maybe JS, if TS wouldn't be available
+#### Language: TypeScript, maybe JS, if TS is not available
