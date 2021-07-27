@@ -1,6 +1,6 @@
 import twoSum from "./two_sum";
 
-describe("two sum case", function () {
+describe("1 Two sum case", function () {
   test("First example", () => {
     const array = [2, 7, 11, 15];
     const target = 9;

@@ -1,6 +1,6 @@
 import validParentheses from "./valid_parentheses";
 
-describe("valid parentheses cases", function () {
+describe("20 Valid parentheses cases", function () {
   test("First example", () => {
     expect(validParentheses("()")).toEqual(true);
   });

@@ -1,6 +1,6 @@
 import makeGood from "./make_the_string_great";
 
-describe("Make the string great (again) tests", function () {
+describe("1544 Make the string great (again) tests", function () {
   test("First example", () => {
     const input = "leEeetcode";
     const output = "leetcode";

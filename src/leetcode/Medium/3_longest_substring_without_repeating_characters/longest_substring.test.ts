@@ -1,6 +1,6 @@
 import lengthOfLongestSubstring from "./longest_substring";
 
-describe("longest substring test cases", function () {
+describe("3 Longest substring test cases", function () {
   test("First example", () => {
     const input = "abcabcbb";
     const output = 3;
