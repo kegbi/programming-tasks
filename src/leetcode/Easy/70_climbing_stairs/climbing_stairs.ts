@@ -1,26 +1,14 @@
 export default function climbStairs(n: number): number {
-  const memo = {};
-  const climb_Stairs = (currentStep: number, destinationStep: number) => {
-    // if we overstepped, we return 0
-    if (currentStep > destinationStep) {
-      return 0;
-    }
-    // if we hit the right one - we return 1, to add this possibility to our count
-    if (currentStep === destinationStep) {
-      return 1;
-    }
+  if (n === 1) {
+    return 1;
+  }
 
-    // Checking if we already stored result for this func and if yes - returning it, if not - calculating and storing it
-    if (currentStep in memo) {
-      return memo[currentStep];
-    } else {
-      const stairs =
-        climb_Stairs(currentStep + 1, destinationStep) +
-        climb_Stairs(currentStep + 2, destinationStep);
-      memo[currentStep] = stairs;
-      return stairs;
-    }
-  };
+  let number1 = 1;
+  let number2 = 2;
 
-  return climb_Stairs(0, n);
+  for (let i = 3; i < n + 1; i++) {
+    [number1, number2] = [number2, number1 + number2];
+  }
+
+  return number2;
 }
