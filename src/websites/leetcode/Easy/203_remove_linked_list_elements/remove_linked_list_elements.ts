@@ -1,18 +1,6 @@
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+import { ListNode } from "../../../../common_data_structures/singly_linked_list/singly_linked_list";
 
-// @ts-ignore
 function removeElements(head: ListNode | null, val: number): ListNode | null {
-  // @ts-ignore
   let result = new ListNode(0);
   result.next = head;
 
