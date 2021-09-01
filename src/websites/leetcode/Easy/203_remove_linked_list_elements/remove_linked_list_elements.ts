@@ -1,4 +1,4 @@
-import { ListNode } from "../../../../common_data_structures/singly_linked_list/singly_linked_list";
+import { ListNode } from "../../../../common_data_structures/singly_linked_list/linked_list_node";
 
 function removeElements(head: ListNode | null, val: number): ListNode | null {
   let result = new ListNode(0);
