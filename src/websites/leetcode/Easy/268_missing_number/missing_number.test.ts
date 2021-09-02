@@ -16,7 +16,7 @@ describe("268 Missing number tests", function () {
     const output = 8;
     expect(missingNumber(input)).toEqual(output);
   });
-  test("Forth example", () => {
+  test("Fourth example", () => {
     const input = [0];
     const output = 1;
     expect(missingNumber(input)).toEqual(output);

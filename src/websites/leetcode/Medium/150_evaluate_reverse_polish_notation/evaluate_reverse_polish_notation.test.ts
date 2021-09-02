@@ -30,7 +30,7 @@ describe("150 Longest substring test cases", function () {
     const output = 22;
     expect(evalRPN(input)).toEqual(output);
   });
-  test("Forth example", () => {
+  test("Fourth example", () => {
     const input = ["4", "-2", "/", "2", "-3", "-", "-"];
     const output = -7;
     expect(evalRPN(input)).toEqual(output);

@@ -16,7 +16,7 @@ describe("3 Longest substring test cases", function () {
     const output = 3;
     expect(lengthOfLongestSubstring(input)).toEqual(output);
   });
-  test("Forth example", () => {
+  test("Fourth example", () => {
     const input = "";
     const output = 0;
     expect(lengthOfLongestSubstring(input)).toEqual(output);

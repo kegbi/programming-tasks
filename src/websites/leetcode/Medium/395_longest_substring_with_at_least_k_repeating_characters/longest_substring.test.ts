@@ -19,7 +19,7 @@ describe("395 Longest substring test cases", function () {
     const output = 3;
     expect(lengthOfLongestSubstring(input, k)).toEqual(output);
   });
-  test("Forth example", () => {
+  test("Fourth example", () => {
     const input = "aaabb";
     const k = 3;
     const output = 3;
