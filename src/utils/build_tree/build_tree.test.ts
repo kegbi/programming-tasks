@@ -54,4 +54,11 @@ describe("build tree tests", function () {
     const output = "1, 2, null, null, 3";
     expect(treeValuesToString(tree)).toEqual(output);
   });
+  test("Fourth example", () => {
+    const input = [1, 2];
+
+    const tree = treeFromArray(input);
+    const output = "1, 2";
+    expect(treeValuesToString(tree)).toEqual(output);
+  });
 });
