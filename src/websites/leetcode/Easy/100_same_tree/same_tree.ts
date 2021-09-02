@@ -1,29 +1,15 @@
 import { TreeNode } from "../../../../common_data_structures/binary_tree/binary_tree";
 
-function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
-  const firstTree = traverseTree(p);
-  const secondTree = traverseTree(q);
-
-  function traverseTree(root: TreeNode | null) {
-    if (root === null) return "null";
-
-    const queue: Array<TreeNode> = [root];
-    let resultArray: Array<number | string> = [];
-
-    while (queue.length > 0) {
-      const treeNode = queue.shift();
-      const areNoValuePresented = treeNode === null || treeNode === undefined;
-
-      const valueToPush = areNoValuePresented ? "null" : treeNode.val;
-      resultArray.push(valueToPush);
-      if (treeNode) {
-        queue.push(treeNode.left);
-        queue.push(treeNode.right);
-      }
+export function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+  const stack = [[p, q]];
+  while (stack.length) {
+    [p, q] = stack.pop();
+    if (p && q && p.val == q.val) {
+      stack.push([p.left, q.left], [p.right, q.right]);
+    } else if (p || q) {
+      return false;
     }
-
-    return resultArray.join(", ");
   }
 
-  return firstTree === secondTree;
+  return true;
 }
