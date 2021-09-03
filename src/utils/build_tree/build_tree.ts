@@ -4,7 +4,7 @@ export function treeFromArray(array: Array<number | null>) {
   if (array.length === 0) return null;
 
   let nextItem = 0;
-  const root = new TreeNode(array[nextItem++] as number);
+  const root = new TreeNode(array[nextItem++]);
   const queue = [root];
 
   while (queue.length > 0 && nextItem < array.length) {
