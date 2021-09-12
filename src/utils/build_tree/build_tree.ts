@@ -38,17 +38,21 @@ export function treeFromArray(array: Array<number | null>) {
   return root;
 }
 
-export function treeValuesToString(root: TreeNode | null): string {
-  if (root === null) return "null";
+export function arrayOfValuesFromTree(
+  root: TreeNode | null
+): Array<number | null> | null {
+  if (root === null) {
+    return null;
+  }
 
   const queue: Array<TreeNode> = [root];
-  let resultArray: Array<number | string> = [];
+  let resultArray: Array<number | null> = [];
 
   while (queue.length > 0) {
     const treeNode = queue.shift();
     const areNoValuePresented = treeNode === null || treeNode === undefined;
 
-    const valueToPush = areNoValuePresented ? "null" : treeNode.val;
+    const valueToPush = areNoValuePresented ? null : treeNode.val;
     resultArray.push(valueToPush);
     if (treeNode) {
       queue.push(treeNode.left);
@@ -58,14 +62,24 @@ export function treeValuesToString(root: TreeNode | null): string {
 
   function filterArrayFromNullsAtTheEnd(array) {
     const arrayCopy = [...array];
-    while (arrayCopy[arrayCopy.length - 1] === "null") {
+    while (arrayCopy[arrayCopy.length - 1] === null) {
       arrayCopy.pop();
     }
 
     return arrayCopy;
   }
 
-  resultArray = filterArrayFromNullsAtTheEnd(resultArray);
+  return filterArrayFromNullsAtTheEnd(resultArray);
+}
 
-  return resultArray.join(", ");
+export function treeValuesToString(root: TreeNode | null): string {
+  if (root === null) return "null";
+
+  const arrayOfValues = arrayOfValuesFromTree(root);
+
+  function transformNullsToStringValues(element) {
+    return element === null ? "null" : element;
+  }
+
+  return arrayOfValues.map(transformNullsToStringValues).join(", ");
 }
