@@ -16,7 +16,7 @@ describe("573 subtree of another tree tests", function () {
     const output = false;
     expect(isSubtree(input, target)).toEqual(output);
   });
-  test("Trird example", () => {
+  test("Third example", () => {
     const input = treeFromArray([
       1,
       null,
