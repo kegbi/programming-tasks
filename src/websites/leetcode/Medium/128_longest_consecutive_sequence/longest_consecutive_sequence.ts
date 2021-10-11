@@ -29,7 +29,7 @@ export function longestConsecutive(nums: number[]): number {
   const numsMap = new Map();
 
   nums.forEach((number) => {
-    if (!numsMap.get(String(number))) {
+    if (!numsMap.has(String(number))) {
       numsMap.set(String(number), number);
     }
   });
