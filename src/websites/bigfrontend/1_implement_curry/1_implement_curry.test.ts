@@ -2,7 +2,7 @@ import curry from "./1_implement_curry";
 
 describe("1 implement curry tests", () => {
   test("First example", () => {
-    function basicFunction(a, b, c) {
+    function basicFunction(a: string, b: string, c: string) {
       return `${a}_${b}_${c}`;
     }
 
