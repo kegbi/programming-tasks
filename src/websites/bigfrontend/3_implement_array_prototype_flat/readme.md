@@ -1,4 +1,4 @@
-Difficulty: easy
+Difficulty: Easy
 
 Link: https://bigfrontend.dev/problem/implement-Array-prototype.flat
 
