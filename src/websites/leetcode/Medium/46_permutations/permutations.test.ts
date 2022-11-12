@@ -4,8 +4,6 @@ describe("46 permutations tests", () => {
   test("First example", () => {
     const nums = [1, 2, 3];
 
-    console.log(permutations(nums));
-
     expect(permutations(nums)).toEqual([
       [1, 2, 3],
       [1, 3, 2],
