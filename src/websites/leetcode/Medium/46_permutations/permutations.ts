@@ -1,29 +1,24 @@
 export function permutations(nums: number[]): number[][] {
-  const result = new Set<number[]>();
-  const alreadyExistingNums = new Set<string>();
+  const result: number[][] = [];
 
-  function checkIfNumberIsNotAlreadyUsedInArray(array: number[]) {
-    return new Set(array).size === array.length;
-  }
+  function checkNums(currentNumbers: number[], restNumbers: number[]): void {
+    if (restNumbers.length === 0) {
+      result.push(currentNumbers);
+      return;
+    }
 
-  function checkNums(currentNumbersForCheck: number[], index: number) {
-    if (index < nums.length) {
-      for (let i = 0; i < nums.length; i++) {
-        const newNumberArray = [...currentNumbersForCheck, nums[i]];
-        if (checkIfNumberIsNotAlreadyUsedInArray(newNumberArray)) {
-          checkNums(newNumberArray, index + 1);
-        }
-      }
-    } else {
-      const formattedNumbers = currentNumbersForCheck.join("-");
-      if (!alreadyExistingNums.has(formattedNumbers)) {
-        result.add(currentNumbersForCheck);
-        alreadyExistingNums.add(formattedNumbers);
-      }
+    for (let i = 0; i < restNumbers.length; i++) {
+      const newCurrentNumbersArray = [...currentNumbers, restNumbers[i]];
+      const newRestNumbersArray = [
+        ...restNumbers.slice(0, i),
+        ...restNumbers.slice(i + 1),
+      ];
+
+      checkNums(newCurrentNumbersArray, newRestNumbersArray);
     }
   }
 
-  checkNums([], 0);
+  checkNums([], nums);
 
-  return Array.from(result);
+  return result;
 }
