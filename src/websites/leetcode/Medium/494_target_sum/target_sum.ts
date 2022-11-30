@@ -23,12 +23,12 @@ export function findTargetSumWays(nums: number[], target: number): number {
         currentItemIndex + 1,
         memo
       );
-      const substract = backtrack(
+      const subtract = backtrack(
         sum - nums[currentItemIndex],
         currentItemIndex + 1,
         memo
       );
-      memo[currentItemIndex][sum + numbersTotal] = add + substract;
+      memo[currentItemIndex][sum + numbersTotal] = add + subtract;
 
       return memo[currentItemIndex][sum + numbersTotal];
     }
