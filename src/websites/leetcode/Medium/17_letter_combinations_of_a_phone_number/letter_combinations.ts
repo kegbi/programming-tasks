@@ -1,6 +1,10 @@
-type PossibleDigits = 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+type PossibleDigits = "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9";
 
 export function letterCombinations(digits: string): string[] {
+  if (digits.length === 0) {
+    return [];
+  }
+
   const numberToLettersArray = {
     2: ["a", "b", "c"],
     3: ["d", "e", "f"],
@@ -12,36 +16,21 @@ export function letterCombinations(digits: string): string[] {
     9: ["w", "x", "y", "z"],
   };
 
-  const finalArray: string[] = [];
-
-  const formedArrayOfArrays = digits
-    .split("")
-    .map(
-      (stringDigit) =>
-        numberToLettersArray[Number(stringDigit) as PossibleDigits],
-    );
-
-  function iterateOverOtherNumbers(
-    currentString: string,
-    leftCombinations: string[][],
-  ) {
-    if (leftCombinations?.length) {
-      const arrayWIthoutCurrentNumbers = [...leftCombinations];
-
-      arrayWIthoutCurrentNumbers.splice(0, 1);
-
-      for (let i = 0; i < leftCombinations[0].length; i++) {
-        iterateOverOtherNumbers(
-          currentString + leftCombinations[0][i],
-          arrayWIthoutCurrentNumbers,
-        );
-      }
-    } else if (currentString !== "") {
-      finalArray.push(currentString);
+  const combinations: string[] = [];
+  const backtrack = (index: number, current: string) => {
+    if (index === digits.length) {
+      combinations.push(current);
+      return;
     }
-  }
 
-  iterateOverOtherNumbers("", formedArrayOfArrays);
+    const digit = digits[index];
+    const letters = numberToLettersArray[digit as PossibleDigits];
 
-  return finalArray;
+    for (const letter of letters) {
+      backtrack(index + 1, current + letter);
+    }
+  };
+
+  backtrack(0, "");
+  return combinations;
 }
