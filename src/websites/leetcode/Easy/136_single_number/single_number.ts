@@ -1,5 +1,7 @@
-export default function singleNumber(nums: number[]): any {
-  const hashMap = {};
+export default function singleNumber(nums: number[]) {
+  const hashMap: {
+    [number: number]: number;
+  } = {};
 
   nums.forEach((num) => {
     if (num in hashMap) {
@@ -9,7 +11,7 @@ export default function singleNumber(nums: number[]): any {
     }
   });
 
-  for (let num in hashMap) {
+  for (const num in hashMap) {
     if (hashMap[num] === 0) {
       return Number(num);
     }
