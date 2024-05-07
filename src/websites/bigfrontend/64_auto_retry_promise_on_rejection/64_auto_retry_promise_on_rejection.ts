@@ -15,12 +15,8 @@ export function fetchWithAutoRetry<T>(
           const newRetryCounter = (currentRetryCounter || 0) - 1;
 
           if (newRetryCounter >= 0) {
-            console.error(
-              `Error sending the promise, ${newRetryCounter} tries left`,
-            );
             return attemptFetch(newRetryCounter);
           } else {
-            console.error("Maximum retry count reached");
             reject(error);
           }
         });
